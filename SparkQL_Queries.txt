@@ -1,0 +1,34 @@
+1. Rocket Images
+SELECT ?rocket ?rocketLabel ?image
+WHERE {
+  ?rocket wdt:P31/wdt:P279* wd:Q728.
+  ?rocket wdt:P18 ?image.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+LIMIT 10
+
+2. Items from the Year 1985
+SELECT ?item ?itemLabel ?date
+WHERE {
+  ?item wdt:P571 ?date.
+  FILTER(YEAR(?date) = 1985)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+LIMIT 10
+
+3. Items Related to Law
+SELECT ?law ?lawLabel
+WHERE {
+  ?law wdt:P31/wdt:P279* wd:Q7748.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+LIMIT 10
+
+
+4. Items Related to Winnie-the-Pooh
+SELECT ?item ?itemLabel
+WHERE {
+  ?item wdt:P361 wd:Q43361.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+LIMIT 10
